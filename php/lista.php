@@ -5,7 +5,7 @@ require_once __DIR__ . "/lib/devuelveJson.php";
 
 devuelveJson([
  [
-  "nombre" => "Luis Eduardo",
+  "nombre" => "Luis",
   "chiste" => "¿Por qué programar es como el café? Porque sin él no funciono.",
   "img" => "img/penta.jpeg"
  ],
