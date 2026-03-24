@@ -23,7 +23,7 @@ export class NavTabFixed extends HTMLElement {
     Lista Cliente
     </a>
 
-    <a ${resaltaSiEstasEn(["/listaservice.html"])} href="listaservice.html">
+    <a ${resaltaSiEstasEn(["/listaserver.html"])} href="listaserver.html">
     <span class="material-symbols-outlined">dns</span>
     Lista Servidor
     </a>

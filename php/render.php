@@ -32,11 +32,9 @@ foreach ($lista as $item) {
 
  $nombre = htmlentities($item["nombre"]);
  $chiste = htmlentities($item["chiste"]);
- $img = htmlentities($item["img"]);
 
  $render .= "
   <li class='md-two-line'>
-    <img src='$img' alt='Foto de $nombre'>
     <span class='headline'>$nombre</span>
     <span class='supporting'>$chiste</span>
   </li>

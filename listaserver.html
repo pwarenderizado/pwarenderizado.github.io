@@ -9,7 +9,8 @@
 
  <meta name="description" content="PWA del equipo de desarrollo con Material Design 3 Expressive">
 
- <script type="module" src="js/lib/registraServiceWorker.js"></script>
+ <!-- ❌ DESACTIVADO TEMPORAL -->
+ <!-- <script type="module" src="js/lib/registraServiceWorker.js"></script> -->
 
  <meta name="viewport" content="width=device-width">
  <meta name="theme-color" content="#fffbfe">
@@ -48,18 +49,6 @@
    <li>Cargando...</li>
   </ul>
 
-  <footer>
-   <ul>
-    <li>
-     <p>
-      <small>
-       © 2026 Equipo de Desarrollo PWA. Todos los derechos reservados.
-      </small>
-     </p>
-    </li>
-   </ul>
-  </footer>
-
  </section>
 
  <script type="module">
@@ -72,7 +61,7 @@ carga()
 
 async function carga() {
  try {
-  const respuesta = await consume(recibeJson("/php/render.php"))
+  const respuesta = await consume(recibeJson("php/render.php")) // 🔥 SIN /
   const json = await respuesta.json()
 
   muestraObjeto(document, json)

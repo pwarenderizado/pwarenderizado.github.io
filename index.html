@@ -13,7 +13,6 @@
  <link rel="icon" sizes="32x32" href="favicon.ico">
  <link rel="manifest" href="site.webmanifest">
 
- <!-- scripts base -->
  <script src="ungap/custom-elements.js"></script>
  <script type="module" src="js/lib/custom/md-app-bar.js"></script>
  <script type="module" src="js/nav-tab-fixed.js"></script>
@@ -43,30 +42,32 @@
    Selecciona un integrante del equipo para mostrar su chiste.
   </p>
 
-  <!-- FORMULARIO COMO LISTA MATERIAL -->
-  <ul class="md-list">
+  <!-- 🔥 FORMULARIO CORRECTO -->
+  <form id="forma">
+   <ul class="md-list">
 
-   <li class="md-two-line">
-    <span class="headline">Integrante</span>
-    <span class="supporting">
-     <select name="integrante" id="integrante" required>
-      <option value="">Selecciona uno</option>
-      <option value="emiliano">Emiliano</option>
-      <option value="irvin">Irvin</option>
-      <option value="lalo">Luis</option>
-      <option value="jesus">Jesus</option>
-      <option value="saul">Saul</option>
-     </select>
-    </span>
-   </li>
+    <li class="md-two-line">
+     <span class="headline">Integrante</span>
+     <span class="supporting">
+      <select name="integrante" required>
+       <option value="">Selecciona uno</option>
+       <option value="emiliano">Emiliano</option>
+       <option value="irvin">Irvin</option>
+       <option value="luis">Luis</option>
+       <option value="jesus">Jesus</option>
+       <option value="saul">Saul</option>
+      </select>
+     </span>
+    </li>
 
-   <li>
-    <button id="btnEnviar">Mostrar chiste</button>
-   </li>
+    <li>
+     <button type="submit">Mostrar chiste</button>
+    </li>
 
-  </ul>
+   </ul>
+  </form>
 
-  <!-- RESULTADO COMO LISTA MATERIAL -->
+  <!-- RESULTADO -->
   <ul class="md-list" id="resultado"></ul>
 
  </section>
@@ -77,21 +78,17 @@
   import { enviaFormRecibeJson } from "./js/lib/enviaFormRecibeJson.js"
   import { muestraError } from "./js/lib/muestraError.js"
 
-  const btn = document.getElementById("btnEnviar")
-  const select = document.getElementById("integrante")
+  const forma = document.getElementById("forma")
   const resultado = document.getElementById("resultado")
 
-  btn.addEventListener("click", submit)
+  forma.addEventListener("submit", submit)
 
   async function submit(event) {
    try {
     event.preventDefault()
 
-    const formData = new FormData()
-    formData.append("integrante", select.value)
-
     const respuesta = await consume(
-     enviaFormRecibeJson("php/procesa.php", formData)
+     enviaFormRecibeJson("php/procesa.php", forma)
     )
 
     const json = await respuesta.json()

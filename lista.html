@@ -5,7 +5,7 @@
 
  <meta charset="UTF-8">
 
-<title>Lista - PWA Renderizado</title>
+ <title>Lista - PWA Renderizado</title>
 
  <meta name="description" content="PWA del equipo de desarrollo con Material Design 3 Expressive">
 
@@ -18,12 +18,11 @@
  <link rel="manifest" href="site.webmanifest">
 
  <script src="ungap/custom-elements.js"></script>
- 
 
  <script type="module" src="js/lib/custom/md-app-bar.js"></script>
  <script type="module" src="js/nav-tab-fixed.js"></script>
- 
 
+ <!-- estilos -->
  <link rel="stylesheet" href="css/estilos.css">
  <link rel="stylesheet" href="css/transicion_pestanas.css">
  <link rel="stylesheet" href="css/md-tab.css">
@@ -42,13 +41,13 @@
 
  <section>
 
-    <p class="md-body">
- Lista generada desde el cliente usando lista dinámico con PHP.
-</p>
+  <p class="md-body">
+   Lista generada desde el cliente usando lista dinámico con PHP.
+  </p>
 
   <ul class="md-list" id="lista">
- <li>Cargando...</li>
-</ul>
+   <li>Cargando...</li>
+  </ul>
 
   <footer>
    <ul>
@@ -66,43 +65,43 @@
 
  <script type="module">
 
-import { consume } from "./js/lib/consume.js"
-import { recibeJson } from "./js/lib/recibeJson.js"
-import { htmlentities } from "./js/lib/htmlentities.js"
+  import { consume } from "./js/lib/consume.js"
+  import { recibeJson } from "./js/lib/recibeJson.js"
+  import { htmlentities } from "./js/lib/htmlentities.js"
 
-descargaDatos()
+  const lista = document.getElementById("lista")
 
-async function descargaDatos() {
- try {
-  const respuesta = await consume(recibeJson("php/lista.php"))
-  const json = await respuesta.json()
+  descargaDatos()
 
-  let render = ""
+  async function descargaDatos() {
+   try {
+    const respuesta = await consume(recibeJson("php/lista.php"))
+    const json = await respuesta.json()
 
-  for (const item of json) {
+    let render = ""
 
-   const nombre = htmlentities(item.nombre)
-   const chiste = htmlentities(item.chiste)
-   const img = htmlentities(item.img)
+    for (const item of json) {
 
-   render += `
-    <li class="md-two-line">
-     <img src="${img}" alt="${nombre}">
-     <span class="headline">${nombre}</span>
-     <span class="supporting">${chiste}</span>
-    </li>
-   `
+     const nombre = htmlentities(item.nombre)
+     const chiste = htmlentities(item.chiste)
+
+     render += `
+      <li class="md-two-line">
+       <span class="headline">${nombre}</span>
+       <span class="supporting">${chiste}</span>
+      </li>
+     `
+    }
+
+    lista.innerHTML = render
+
+   } catch (error) {
+    lista.innerHTML = "<li>Error al cargar datos</li>"
+    console.error(error)
+   }
   }
 
-  lista.innerHTML = render
-
- } catch (error) {
-  lista.innerHTML = "<li>Error al cargar datos</li>"
-  console.error(error)
- }
-}
-
-</script>
+ </script>
 
 </body>
 
