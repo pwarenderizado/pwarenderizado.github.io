@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" class="light dark">
+
+<head>
+
+ <meta charset="UTF-8">
+
+<title>Ayuda - PWA Renderizado</title>
+
+ <script type="module" src="js/lib/registraServiceWorker.js"></script>
+
+ <meta name="viewport" content="width=device-width">
+ <meta name="theme-color" content="#fffbfe">
+ <link rel="icon" sizes="32x32" href="favicon.ico">
+ <link rel="manifest" href="site.webmanifest">
+ <script src="ungap/custom-elements.js"></script>
+
+ <script type="module" src="js/lib/custom/md-app-bar.js"></script>
+ <script type="module" src="js/nav-tab-fixed.js"></script>
+
+ <link rel="stylesheet" href="css/estilos.css">
+ <link rel="stylesheet" href="css/transicion_pestanas.css">
+ <link rel="stylesheet" href="css/md-headline.css">
+ <link rel="stylesheet" href="css/md-tab.css">
+ <link rel="stylesheet" href="css/material-symbols-outlined.css">
+ <link rel="stylesheet" href="css/md-list.css">
+
+</head>
+
+<body>
+
+ <md-app-bar adicional="tab">
+  <h1>Ayuda</h1>
+ </md-app-bar>
+
+ <nav-tab-fixed id="tab"></nav-tab-fixed>
+
+ <section class="ayuda-completa">
+
+  <ul class="md-list">
+
+   <li class="md-two-line">
+    <span class="headline">
+     Título
+    </span>
+    <span class="supporting">
+     Equipo de Desarrollo PWA
+    </span>
+   </li>
+
+   <li class="md-two-line">
+    <span class="headline">
+     Descripción
+    </span>
+    <span class="supporting">
+Aplicación Web Progresiva (PWA) que implementa renderizado en cliente y servidor,
+mostrando integrantes del equipo junto con sus chistes utilizando Material Design 3.    
+</span>
+   </li>
+
+<li class="md-three-line ayuda-expandida">
+  <span class="headline">
+    Autores
+  </span>
+  <span class="supporting">
+    ENRIQUEZ ASCENCIO EMILIANO<br>
+    MORENO CRUZ IRVIN ALBERTO<br>
+    PEREZ ROJAS LUIS EDUARDO<br>
+    SANCHEZ RODRIGUEZ JESUS<br>
+    TORRES PEREZ SAUL YAIR
+  </span>
+</li>
+
+<li class="md-three-line ayuda-expandida">
+  <span class="headline">
+    Derechos de autor
+  </span>
+  <span class="supporting">
+    &copy; 2026 Equipo de Desarrollo PWA.<br>
+    Integrantes:<br>
+    - ENRIQUEZ ASCENCIO EMILIANO<br>
+    - MORENO CRUZ IRVIN ALBERTO<br>
+    - PEREZ ROJAS LUIS EDUARDO<br>
+    - SANCHEZ RODRIGUEZ JESUS<br>
+    - TORRES PEREZ SAUL YAIR<br>
+    Todos los derechos reservados por el equipo Pentabyte.
+  </span>
+</li>
+
+<li class="md-three-line ayuda-expandida">
+    <span class="headline">
+     Librería utilizada para PWA
+    </span>
+    <span class="supporting">
+     Material base proporcionado por el profesor <br>
+     Pacheco Gallegos Gilberto. <br>
+     Esta aplicación está basada en la estructura proporcionada en la lección original. <br>
+     El material base está bajo Licencia Creative Commons Atribución 4.0 Internacional. <br>
+    </span>
+   </li>
+
+   <li class="md-three-line">
+  <span class="headline">
+    Material Design 3 Expressive
+  </span>
+  <span class="supporting">
+    La interfaz gráfica de esta aplicación utiliza el sistema de diseño 
+    Material Design 3 Expressive desarrollado por Google, incluyendo 
+    componentes visuales, tipografía y lineamientos de diseño.
+    Material Design está disponible bajo licencia Apache 2.0. 
+  </span>
+</li>
+
+
+   <li>
+    <a class="md-three-line" target="_blank" rel="noopener noreferrer"
+      href="https://fonts.google.com/icons">
+     <span class="headline">
+      Material Symbols
+     </span>
+     <span class="supporting">
+      Desarrollado por Google bajo licencia Apache 2.0.
+     </span>
+    </a>
+   </li>
+
+  </ul>
+
+ </section>
+
+ <nav-drw></nav-drw>
+
+</body>
+
+</html>

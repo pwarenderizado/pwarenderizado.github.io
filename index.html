@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+ <title>PWA Renderizado</title>
+</head>
+
+<body>
+
+ <h1>Chistes</h1>
+
+ <form id="formulario">
+
+  <p>
+   <label>
+    Integrante:
+    <select name="integrante" required>
+     <option value="">Selecciona uno</option>
+     <option value="emiliano">Emiliano</option>
+     <option value="irvin">Irvin</option>
+     <option value="lalo">Luis</option>
+     <option value="jesus">Jesus</option>
+     <option value="saul">Saul</option>
+    </select>
+   </label>
+  </p>
+
+  <p><button type="submit">Mostrar chiste</button></p>
+
+ </form>
+
+ <div id="resultado"></div>
+
+ <script type="module">
+
+  import { consume } from "./js/lib/consume.js"
+  import { enviaFormRecibeJson } from "./js/lib/enviaFormRecibeJson.js"
+  import { muestraError } from "./js/lib/muestraError.js"
+
+  formulario.addEventListener("submit", submit)
+
+  async function submit(event) {
+   try {
+    event.preventDefault()
+
+    const respuesta = await consume(
+     enviaFormRecibeJson(
+      "php/procesa.php", formulario))
+
+    const json = await respuesta.json()
+
+    resultado.innerHTML = `
+      <p><strong>${json.integrante}</strong>: ${json.chiste}</p>
+    `
+
+   } catch (error) {
+    muestraError(error)
+   }
+  }
+
+ </script>
+
+</body>
+</html>
