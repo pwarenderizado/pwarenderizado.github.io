@@ -1,5 +1,6 @@
 .dark {
-  --md-sys-color-primary: rgb(170 199 255);
+
+  --md-sys-color-primary: rgb(#2e3036);
   --md-sys-color-surface-tint: rgb(170 199 255);
   --md-sys-color-on-primary: rgb(10 48 95);
   --md-sys-color-primary-container: rgb(40 71 119);
