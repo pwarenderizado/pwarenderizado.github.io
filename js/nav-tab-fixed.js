@@ -17,11 +17,23 @@ export class NavTabFixed extends HTMLElement {
      <span class="material-symbols-outlined">home</span>
      Inicio
     </a>
+
+    <a ${resaltaSiEstasEn(["/lista.html"])} href="lista.html">
+    <span class="material-symbols-outlined">list</span>
+    Lista Cliente
+    </a>
+
+    <a ${resaltaSiEstasEn(["/listaservice.html"])} href="listaservice.html">
+    <span class="material-symbols-outlined">dns</span>
+    Lista Servidor
+    </a>
  
     <a ${resaltaSiEstasEn(["/ayuda.html"])} href="ayuda.html">
-     <span class="material-symbols-outlined">help</span>
-     Ayuda
+    <span class="material-symbols-outlined">help</span>
+    Ayuda
     </a>`
+
+    
 
    this.creado = true
 
