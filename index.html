@@ -1,47 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light dark">
 
 <head>
+
  <meta charset="UTF-8">
+
+ <title>Inicio - PWA Renderizado</title>
+
  <meta name="viewport" content="width=device-width">
- <title>PWA Renderizado</title>
+ <meta name="theme-color" content="#fffbfe">
 
-<link rel="stylesheet" href="css/md-tab.css">
-<link rel="stylesheet" href="css/material-symbols-outlined.css">
+ <link rel="icon" sizes="32x32" href="favicon.ico">
+ <link rel="manifest" href="site.webmanifest">
 
-<script type="module" src="js/nav-tab-fixed.js"></script>
-<script src="ungap/custom-elements.js"></script>
+ <!-- scripts base -->
+ <script src="ungap/custom-elements.js"></script>
+ <script type="module" src="js/lib/custom/md-app-bar.js"></script>
+ <script type="module" src="js/nav-tab-fixed.js"></script>
 
+ <!-- estilos -->
+ <link rel="stylesheet" href="css/estilos.css">
+ <link rel="stylesheet" href="css/transicion_pestanas.css">
+ <link rel="stylesheet" href="css/md-tab.css">
+ <link rel="stylesheet" href="css/material-symbols-outlined.css">
+ <link rel="stylesheet" href="css/md-list.css">
 
 </head>
 
 <body>
 
- <h1>Chistes</h1>
+ <!-- APP BAR -->
+ <md-app-bar class="centered" adicional="tab">
+  <h1>Chistes</h1>
+ </md-app-bar>
 
+ <!-- NAVEGACIÓN -->
  <nav-tab-fixed id="tab"></nav-tab-fixed>
 
- <form id="formulario">
+ <section>
 
-  <p>
-   <label>
-    Integrante:
-    <select name="integrante" required>
-     <option value="">Selecciona uno</option>
-     <option value="emiliano">Emiliano</option>
-     <option value="irvin">Irvin</option>
-     <option value="luis">Luis</option>
-     <option value="jesus">Jesus</option>
-     <option value="saul">Saul</option>
-    </select>
-   </label>
+  <p class="md-body">
+   Selecciona un integrante del equipo para mostrar su chiste.
   </p>
 
-  <p><button type="submit">Mostrar chiste</button></p>
+  <!-- FORMULARIO COMO LISTA MATERIAL -->
+  <ul class="md-list">
 
- </form>
+   <li class="md-two-line">
+    <span class="headline">Integrante</span>
+    <span class="supporting">
+     <select name="integrante" id="integrante" required>
+      <option value="">Selecciona uno</option>
+      <option value="emiliano">Emiliano</option>
+      <option value="irvin">Irvin</option>
+      <option value="lalo">Luis</option>
+      <option value="jesus">Jesus</option>
+      <option value="saul">Saul</option>
+     </select>
+    </span>
+   </li>
 
- <div id="resultado"></div>
+   <li>
+    <button id="btnEnviar">Mostrar chiste</button>
+   </li>
+
+  </ul>
+
+  <!-- RESULTADO COMO LISTA MATERIAL -->
+  <ul class="md-list" id="resultado"></ul>
+
+ </section>
 
  <script type="module">
 
@@ -49,20 +77,30 @@
   import { enviaFormRecibeJson } from "./js/lib/enviaFormRecibeJson.js"
   import { muestraError } from "./js/lib/muestraError.js"
 
-  formulario.addEventListener("submit", submit)
+  const btn = document.getElementById("btnEnviar")
+  const select = document.getElementById("integrante")
+  const resultado = document.getElementById("resultado")
+
+  btn.addEventListener("click", submit)
 
   async function submit(event) {
    try {
     event.preventDefault()
 
+    const formData = new FormData()
+    formData.append("integrante", select.value)
+
     const respuesta = await consume(
-     enviaFormRecibeJson(
-      "php/procesa.php", formulario))
+     enviaFormRecibeJson("php/procesa.php", formData)
+    )
 
     const json = await respuesta.json()
 
     resultado.innerHTML = `
-      <p><strong>${json.integrante}</strong>: ${json.chiste}</p>
+     <li class="md-two-line">
+      <span class="headline">${json.integrante}</span>
+      <span class="supporting">${json.chiste}</span>
+     </li>
     `
 
    } catch (error) {

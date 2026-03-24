@@ -6,27 +6,22 @@ require_once __DIR__ . "/lib/devuelveJson.php";
 devuelveJson([
  [
   "nombre" => "Luis",
-  "chiste" => "¿Por qué programar es como el café? Porque sin él no funciono.",
-  "img" => "img/penta.jpeg"
+  "chiste" => "¿Por qué programar es como el café? Porque sin él no funciono."
  ],
  [
   "nombre" => "Jesus",
-  "chiste" => "¿Qué le dice un bit al otro? Nos vemos en el bus.",
-  "img" => "img/pentamericano.png"
+  "chiste" => "¿Qué le dice un bit al otro? Nos vemos en el bus."
  ],
  [
   "nombre" => "Irvin",
-  "chiste" => "¿Por qué la computadora fue al doctor? Porque tenía un virus.",
-  "img" => "img/pentaiguana.jpeg"
+  "chiste" => "¿Por qué la computadora fue al doctor? Porque tenía un virus."
  ],
  [
   "nombre" => "Saul",
-  "chiste" => "¿Por qué la impresora se asustó? Porque tuvo una impresión fuerte.",
-  "img" => "img/pentamono.jpeg"
+  "chiste" => "¿Por qué la impresora se asustó? Porque tuvo una impresión fuerte."
  ],
  [
   "nombre" => "Emiliano",
-  "chiste" => "¿Por qué la computadora tiene frío? Porque dejó abierta la ventana",
-  "img" => "img/pentamisterio.jpeg"
+  "chiste" => "¿Por qué la computadora tiene frío? Porque dejó abierta la ventana"
  ]
 ]);
