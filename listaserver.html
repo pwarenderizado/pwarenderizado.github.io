@@ -72,7 +72,7 @@ carga()
 
 async function carga() {
  try {
-  const respuesta = await consume(recibeJson("php/render.php"))
+  const respuesta = await consume(recibeJson("/php/render.php"))
   const json = await respuesta.json()
 
   muestraObjeto(document, json)
