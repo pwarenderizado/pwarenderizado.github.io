@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#fffbfe",
   "theme_color": "#fffbfe",
-  "description": "PWA con componentes de Material Design.",
+  "description": "PWA Renderizado",
 
   "screenshots": [
     {
@@ -13,14 +13,14 @@
       "sizes": "1919x902",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "PWA con Material Design"
+      "label": "PWA renderizado"
     },
     {
       "src": "img/screenshot_vertical.png",
       "sizes": "496x794",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "PWA con Material Design (2)"
+      "label": "PWA renderizado 2"
     }
   ],
 
